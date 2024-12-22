@@ -1,0 +1,8 @@
+{
+  "watch": ["server.js", "public"],
+  "ext": "js,json,html,css",
+  "ignore": ["dist/*"],
+  "env": {
+    "NODE_ENV": "development"
+  }
+} 

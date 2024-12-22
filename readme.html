@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>初二七班抽奖系统 - 说明文档</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: #2980b9;
+            margin-top: 30px;
+        }
+
+        h3 {
+            color: #16a085;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            margin: 10px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .feature-list li:before {
+            content: "•";
+            color: #3498db;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        code {
+            background: #f8f9fa;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: Consolas, monospace;
+        }
+
+        pre {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        .note {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .command {
+            background: #282c34;
+            color: #fff;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>初二七班班级抽奖系统</h1>
+    <p>一个基于Web的班级抽奖系统，包含奖励和惩罚两个奖池，支持奖品记录管理。界面简洁美观，操作简单直观。</p>
+
+    <h2>功能介绍</h2>
+    <h3>奖池系统</h3>
+    <div style="display: flex; gap: 40px;">
+        <div>
+            <h4>A奖池（奖励）</h4>
+            <ul class="feature-list">
+                <li>免一次作业</li>
+                <li>免一周值日</li>
+                <li>换座位一周</li>
+                <li>获得零食</li>
+            </ul>
+        </div>
+        <div>
+            <h4>B奖池（惩罚）</h4>
+            <ul class="feature-list">
+                <li>给全班带礼物</li>
+                <li>一张试卷</li>
+                <li>英语作业x2</li>
+                <li>罚站两节课</li>
+            </ul>
+        </div>
+    </div>
+
+    <h3>核心特性</h3>
+    <ul class="feature-list">
+        <li>每个奖池10张卡片，随机分配奖品</li>
+        <li>精美的翻卡动画效果</li>
+        <li>奖品记录管理</li>
+        <li>奖品使用确认系统</li>
+        <li>数据本地存储</li>
+        <li>响应式设计</li>
+    </ul>
+
+    <h2>快速开始</h2>
+    <h3>安装</h3>
+    <div class="command">
+        # 克隆项目<br>
+        git clone [项目地址]<br><br>
+        # 进入项目目录<br>
+        cd [项目名称]<br><br>
+        # 安装依赖<br>
+        npm install<br><br>
+        # 安装开发依赖<br>
+        npm install fs-extra --save-dev<br>
+        npm install nodemon --save-dev
+    </div>
+
+    <h3>运行</h3>
+    <div class="command">
+        # 预览模式 (端口4000)<br>
+        npm run dev<br><br>
+        # 构建<br>
+        npm run build
+    </div>
+
+    <h2>使用指南</h2>
+    <h3>抽奖流程</h3>
+    <ol>
+        <li>选择奖池（A/B）</li>
+        <li>输入学生姓名</li>
+        <li>点击开始抽奖</li>
+        <li>选择任意卡片</li>
+        <li>查看抽奖结果</li>
+        <li>其他卡片自动展示</li>
+    </ol>
+
+    <h3>奖品管理</h3>
+    <ol>
+        <li>点击"抽奖记录"按钮</li>
+        <li>查看所有学生的奖品记录</li>
+        <li>点击"使用"按钮消耗奖品</li>
+        <li>确认使用操作</li>
+    </ol>
+
+    <h2>项目结构</h2>
+    <pre>
+├── public/          # 静态资源
+│   ├── css/        # 样式文件
+│   ├── js/         # JavaScript文件
+│   └── index.html  # 主页面
+├── server.js       # 服务器入口
+├── build.js        # 构建脚本
+└── package.json    # 项目配置</pre>
+
+    <h2>技术栈</h2>
+    <ul class="feature-list">
+        <li>前端：HTML5、CSS3、JavaScript</li>
+        <li>后端：Node.js、Express</li>
+        <li>存储：localStorage</li>
+    </ul>
+
+    <h2>开发环境</h2>
+    <ul class="feature-list">
+        <li>Node.js >= 14.0.0</li>
+        <li>npm >= 6.0.0</li>
+    </ul>
+
+    <div class="note">
+        <h3>注意事项</h3>
+        <ul class="feature-list">
+            <li>数据存储在浏览器本地</li>
+            <li>清除浏览器数据会导致记录丢失</li>
+            <li>建议定期备份数据</li>
+        </ul>
+    </div>
+
+    <h2>许可证</h2>
+    <p>MIT License</p>
+</body>
+</html> 
