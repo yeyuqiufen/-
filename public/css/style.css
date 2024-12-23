@@ -1,0 +1,512 @@
+:root {
+    --pool-a-color: #FF6B6B;
+    --pool-b-color: #4ECDC4;
+}
+
+body {
+    font-family: 'Noto Sans SC', sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+.title {
+    text-align: center;
+    color: white;
+    font-size: 3rem;
+    margin-bottom: 50px;
+    text-shadow: 0 0 10px rgba(255,255,255,0.3);
+    animation: titleFloat 3s ease-in-out infinite;
+}
+
+.pools-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 20px;
+}
+
+.pool-button {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    border-radius: 20px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pool-a {
+    background: linear-gradient(45deg, var(--pool-a-color), #FF8E8E);
+}
+
+.pool-b {
+    background: linear-gradient(45deg, var(--pool-b-color), #6BE4D9);
+}
+
+.pool-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.pool-title {
+    color: white;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    margin-bottom: 20px;
+}
+
+.pool-icon {
+    font-size: 4rem;
+    margin-top: 20px;
+}
+
+.pool-shine {
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: 300%;
+    height: 300%;
+    background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(255,255,255,0.1),
+        transparent
+    );
+    transform: rotate(45deg);
+    animation: shine 3s infinite;
+}
+
+.pool-button:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.pool-button:active {
+    transform: translateY(-5px);
+}
+
+@keyframes shine {
+    0% {
+        top: -100%;
+        left: -100%;
+    }
+    100% {
+        top: 100%;
+        left: 100%;
+    }
+}
+
+@keyframes titleFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@media (max-width: 768px) {
+    .pools-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .pool-button {
+        width: 250px;
+        height: 300px;
+    }
+    
+    .title {
+        font-size: 2rem;
+    }
+}
+
+/* 模态框样式 */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 90%;
+    width: 400px;
+}
+
+.cards-container {
+    width: 800px;
+    max-width: 95%;
+    background: rgba(255, 255, 255, 0.95);
+}
+
+/* 统一输入组样式 */
+.input-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+/* 统一输入框样式 */
+#studentName, #studentNameB {
+    flex: 1;
+    padding: 12px 15px;
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 200px;
+    height: 20px;
+}
+
+#studentName {
+    border: 2px solid var(--pool-a-color);
+}
+
+#studentNameB {
+    border: 2px solid var(--pool-b-color);
+}
+
+/* 统一按钮样式 */
+#startLottery, #startLotteryB {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s;
+    font-size: 1rem;
+    font-weight: bold;
+    min-width: 120px;
+    height: 48px;
+}
+
+#startLottery {
+    background: var(--pool-a-color);
+}
+
+#startLotteryB {
+    background: var(--pool-b-color);
+}
+
+#startLottery:hover, #startLotteryB:hover {
+    transform: scale(1.05);
+}
+
+/* 卡片网格 */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    padding: 20px;
+}
+
+/* 卡片样式 */
+.card {
+    position: relative;
+    height: 150px;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.card-front {
+    background: linear-gradient(135deg, var(--pool-a-color), #FF8E8E);
+    color: white;
+}
+
+.card-back {
+    background: white;
+    transform: rotateY(180deg);
+    border: 2px solid var(--pool-a-color);
+    padding: 10px;
+    text-align: center;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .cards-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .card {
+        height: 120px;
+    }
+} 
+
+/* 修改记录按钮样式 */
+.record-button {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    padding: 0;
+    background: linear-gradient(45deg, #FFD700, #FFA500);
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.record-button:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.record-button:active {
+    transform: translateY(-5px);
+}
+
+/* 记录表格样式 */
+.record-container {
+    width: 800px;
+    max-width: 95%;
+    background: white;
+    padding: 0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.record-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0;
+}
+
+.record-table th,
+.record-table td {
+    padding: 15px 30px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    font-size: 1.1rem;
+}
+
+.record-table th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+    color: #333;
+}
+
+.record-table tr:hover {
+    background-color: #f5f5f5;
+}
+
+.use-btn {
+    padding: 6px 20px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.use-btn:hover {
+    background: #45a049;
+}
+
+/* 修改确认模态框样式 */
+.confirm-container {
+    width: 400px;
+    padding: 30px;
+    text-align: left;
+}
+
+.confirm-container h3 {
+    margin: 0 0 20px 0;
+    color: #333;
+}
+
+.confirm-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.confirm-btn,
+.cancel-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.confirm-btn {
+    background-color: #4CAF50;  /* 绿色 */
+}
+
+.cancel-btn {
+    background-color: #f44336;  /* 红色 */
+}
+
+.confirm-btn:hover {
+    background-color: #45a049;  /* 深绿色 */
+    transform: scale(1.05);
+}
+
+.cancel-btn:hover {
+    background-color: #da190b;  /* 深红色 */
+    transform: scale(1.05);
+}
+
+/* 奖品提示框样式 */
+.prize-alert {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.5);
+    background: white;
+    padding: 30px 50px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    text-align: center;
+    opacity: 0;
+    z-index: 2000;
+    transition: all 0.3s ease;
+}
+
+.prize-alert.show {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.prize-alert h2 {
+    color: #333;
+    margin: 0 0 20px 0;
+    font-size: 1.8rem;
+}
+
+.prize-alert .prize-name {
+    color: #FF6B6B;
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.prize-alert .student-name {
+    color: #4CAF50;
+    font-weight: bold;
+} 
+
+/* B奖池卡片正面样式 */
+#cardsBModal .card-front {
+    background: linear-gradient(135deg, var(--pool-b-color), #6BE4D9);
+}
+
+#cardsBModal .card-back {
+    border: 2px solid var(--pool-b-color);
+}
+
+/* B奖池输入框样式 */
+#studentNameB {
+    border: 2px solid var(--pool-b-color);
+}
+
+#startLotteryB {
+    background: var(--pool-b-color);
+} 
+
+/* 使用结果提示框样式 */
+.result-alert {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.5);
+    background: white;
+    padding: 30px 50px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    text-align: center;
+    opacity: 0;
+    z-index: 2000;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.result-alert.show {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.result-icon {
+    font-size: 3rem;
+}
+
+.result-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.result-success {
+    color: #4CAF50;
+}
+
+.result-error {
+    color: #f44336;
+} 
