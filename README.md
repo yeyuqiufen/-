@@ -1,31 +1,31 @@
-# 班级抽奖系统
-详细教程： [跳转](https://ggl.yeyuqiufeng.cn/readme)。
-一个基于Node.js的班级奖励抽奖系统，包含奖励和惩罚两个奖池，支持奖品记录管理。
+# Class lottery system
+Detailed tutorial: [Click here to jump] (https://ggl.yeyuqiufeng.cn/readme).
+A Node.js-based class reward lottery system, including two prize pools of rewards and punishments, supports prize record management.
 
-## 功能特点
+## Features
 
-### A奖池（奖励）
-- 免一次作业
-- 免一周值日
-- 换座位一周
-- 获得零食
-- 等等
+### A Prize Pool (Rewards)
+- Skip a single assignment
+- Skip one week of duty
+- Change seats for a week
+- Get snacks
+-Wait a minute
 
-### B奖池（惩罚）
-- 给全班带礼物
-- 一张试卷
-- 英语作业x2
-- 罚站两节课
-- 等等
+### B Prize Pool (Penalties)
+- Bring gifts for the class
+- One test paper
+- English homework x2
+- Two sessions of penalty standing
+-Wait a minute
 
-### 其他功能
-- 随机抽奖系统，每个奖品概率相等
-- 精美的翻卡片动画效果
-- 奖品记录管理系统
-- 奖品使用确认系统
-- 数据本地持久化存储
-- 响应式设计，支持移动端
+### Other features
+- Random draw system with equal probability for each prize
+- Beautiful flip card animation effects
+- Prize record management system
+- Prize usage confirmation system
+- Local persistent storage of data
+- Responsive design with mobile support
 
-## 安装和运行
+## Install and run
 
-1. 克隆项目并安装依赖
+1. Clone the project and install the dependencies
