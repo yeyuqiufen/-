@@ -9,14 +9,14 @@ A Node.js-based class reward lottery system, including two prize pools of reward
 - Skip one week of duty
 - Change seats for a week
 - Get snacks
--Wait a minute
+- And so on
 
 ### B Prize Pool (Penalties)
 - Bring gifts for the class
 - One test paper
 - English homework x2
-- Two sessions of penalty standing
--Wait a minute
+- Two lessons of standing
+-And so on
 
 ### Other features
 - Random draw system with equal probability for each prize
