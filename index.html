@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>刮刮乐抽奖</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">幸运刮刮乐</h1>
+        <div class="pools-container">
+            <div class="pool-button pool-a" id="poolA">
+                <div class="pool-content">
+                    <div class="pool-title">A奖池</div>
+                    <div class="pool-icon">🎁</div>
+                </div>
+                <div class="pool-shine"></div>
+            </div>
+            <div class="pool-button pool-b" id="poolB">
+                <div class="pool-content">
+                    <div class="pool-title">B奖池</div>
+                    <div class="pool-icon">🎯</div>
+                </div>
+                <div class="pool-shine"></div>
+            </div>
+            <div class="record-button" id="recordBtn">
+                <div class="pool-content">
+                    <div class="pool-title">抽奖记录</div>
+                    <div class="pool-icon">📝</div>
+                </div>
+                <div class="pool-shine"></div>
+            </div>
+            <a href="https://github.com/yeyuqiufen/Class-lottery-machine" 
+               target="_blank" 
+               class="record-button">
+                <div class="pool-content">
+                    <div class="pool-title">开源网址</div>
+                    <div class="pool-icon">🔗</div>
+                </div>
+                <div class="pool-shine"></div>
+            </a>
+        </div>
+    </div>
+
+    <!-- A奖池弹窗 -->
+    <div class="modal" id="poolAModal">
+        <div class="modal-content">
+            <h2>请输入学生姓名</h2>
+            <div class="input-group">
+                <input type="text" id="studentName" placeholder="输入姓名...">
+                <button id="startLottery">开始抽奖</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- B奖池弹窗 -->
+    <div class="modal" id="poolBModal">
+        <div class="modal-content">
+            <h2>请输入学生姓名</h2>
+            <div class="input-group">
+                <input type="text" id="studentNameB" placeholder="输入姓名...">
+                <button id="startLotteryB">开始抽奖</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 抽奖卡片界面 -->
+    <div class="modal" id="cardsModal">
+        <div class="modal-content cards-container">
+            <div class="cards-grid">
+                <!-- 卡片将由JS动态生成 -->
+            </div>
+        </div>
+    </div>
+
+    <!-- B奖池卡片界面 -->
+    <div class="modal" id="cardsBModal">
+        <div class="modal-content cards-container">
+            <div class="cards-grid">
+                <!-- 卡片将由JS动态生成 -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 抽奖记录模态框 -->
+    <div class="modal" id="recordModal">
+        <div class="modal-content record-container">
+            <div class="record-header">
+                <table class="record-table">
+                    <thead>
+                        <tr>
+                            <th>学生姓名</th>
+                            <th>奖品</th>
+                            <th>数量</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody id="recordTableBody">
+                        <!-- 记录将由JS动态生成 -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- 使用确认模态框 -->
+    <div class="modal" id="confirmModal">
+        <div class="modal-content confirm-container">
+            <h3>确认使用奖励</h3>
+            <p id="confirmText"></p>
+            <div class="confirm-buttons">
+                <button class="cancel-btn" id="cancelUse">✕</button>
+                <button class="confirm-btn" id="confirmUse">✓</button>
+            </div>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+    <div class="prize-alert" id="prizeAlert">
+        <h2>恭喜</h2>
+        <div class="student-name"></div>
+        <div>抽中了</div>
+        <div class="prize-name"></div>
+    </div>
+    <div class="result-alert" id="resultAlert">
+        <div class="result-icon"></div>
+        <div class="result-text"></div>
+    </div>
+</body>
+</html> 
