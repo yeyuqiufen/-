@@ -116,6 +116,93 @@
             </div>
         </div>
     </div>
+
+    <!-- 添加概率设置模态框 -->
+    <div class="modal" id="probabilityModal">
+        <div class="modal-content probability-container">
+            <h2>奖品概率设置</h2>
+            <div class="probability-section">
+                <h3>A奖池</h3>
+                <div class="probability-items">
+                    <div class="probability-item">
+                        <label>免一次作业</label>
+                        <input type="range" min="0" max="100" value="22.5" 
+                               data-prize="免一次作业" data-pool="A" class="probability-slider">
+                        <span class="probability-value">22.5%</span>
+                    </div>
+                    <div class="probability-item">
+                        <label>免一周值日</label>
+                        <input type="range" min="0" max="100" value="22.5" 
+                               data-prize="免一周值日" data-pool="A" class="probability-slider">
+                        <span class="probability-value">22.5%</span>
+                    </div>
+                    <div class="probability-item">
+                        <label>换座位一周</label>
+                        <input type="range" min="0" max="100" value="22.5" 
+                               data-prize="换座位一周" data-pool="A" class="probability-slider">
+                        <span class="probability-value">22.5%</span>
+                    </div>
+                    <div class="probability-item">
+                        <label>获得零食</label>
+                        <input type="range" min="0" max="100" value="22.5" 
+                               data-prize="获得零食" data-pool="A" class="probability-slider">
+                        <span class="probability-value">22.5%</span>
+                    </div>
+                    <div class="probability-item">
+                        <label>万能卡</label>
+                        <input type="range" min="0" max="100" value="10" 
+                               data-prize="万能卡" data-pool="A" class="probability-slider">
+                        <span class="probability-value">10%</span>
+                    </div>
+                </div>
+            </div>
+            <div class="probability-section">
+                <h3>B奖池</h3>
+                <div class="probability-items">
+                    <div class="probability-item">
+                        <label>给全班带礼物</label>
+                        <input type="range" min="0" max="100" value="16.67" 
+                               data-prize="给全班带礼物" data-pool="B" class="probability-slider">
+                        <span class="probability-value">16.67%</span>
+                    </div>
+                    <div class="probability-item">
+                        <label>一张试卷</label>
+                        <input type="range" min="0" max="100" value="16.67" 
+                               data-prize="一张试卷" data-pool="B" class="probability-slider">
+                        <span class="probability-value">16.67%</span>
+                    </div>
+                    <div class="probability-item">
+                        <label>英语作业x2</label>
+                        <input type="range" min="0" max="100" value="16.67" 
+                               data-prize="英语作业x2" data-pool="B" class="probability-slider">
+                        <span class="probability-value">16.67%</span>
+                    </div>
+                    <div class="probability-item">
+                        <label>罚站两节课</label>
+                        <input type="range" min="0" max="100" value="16.67" 
+                               data-prize="罚站两节课" data-pool="B" class="probability-slider">
+                        <span class="probability-value">16.67%</span>
+                    </div>
+                    <div class="probability-item">
+                        <label>摆一周桌子</label>
+                        <input type="range" min="0" max="100" value="16.67" 
+                               data-prize="摆一周桌子" data-pool="B" class="probability-slider">
+                        <span class="probability-value">16.67%</span>
+                    </div>
+                    <div class="probability-item">
+                        <label>表演节目</label>
+                        <input type="range" min="0" max="100" value="16.67" 
+                               data-prize="表演节目" data-pool="B" class="probability-slider">
+                        <span class="probability-value">16.67%</span>
+                    </div>
+                </div>
+            </div>
+            <div class="probability-buttons">
+                <button id="saveProbability">保存设置</button>
+                <button id="resetProbability">重置默认</button>
+            </div>
+        </div>
+    </div>
     <script src="js/main.js"></script>
     <div class="prize-alert" id="prizeAlert">
         <h2>恭喜</h2>

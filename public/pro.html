@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>概率设置</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .probability-page {
+            padding: 50px;
+            width: 900px;
+            max-width: 95%;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .probability-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .back-button {
+            padding: 12px 25px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+
+        .back-button:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin: 0;
+            font-size: 2.2rem;
+        }
+
+        h3 {
+            color: #2c3e50;
+            font-size: 1.6rem;
+            margin: 30px 0 20px;
+        }
+
+        .probability-item {
+            display: grid;
+            grid-template-columns: 200px 1fr 80px;
+            align-items: center;
+            gap: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .probability-item label {
+            font-size: 1.2rem;
+            color: #34495e;
+        }
+
+        .probability-slider {
+            height: 12px;
+        }
+
+        .probability-slider::-webkit-slider-thumb {
+            width: 24px;
+            height: 24px;
+        }
+
+        .probability-value {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #3498db;
+            width: 80px;
+            text-align: center;
+        }
+
+        .probability-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #eee;
+        }
+
+        .probability-buttons button {
+            padding: 15px 40px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        #saveProbability {
+            background: #2ecc71;
+            color: white;
+        }
+
+        #resetProbability {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .probability-buttons button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .probability-container::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        .probability-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 5px;
+        }
+
+        .probability-container::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 5px;
+        }
+
+        .probability-container::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="probability-page">
+        <div class="probability-header">
+            <h1>奖品概率设置</h1>
+            <a href="index.html" class="back-button">返回主页</a>
+        </div>
+        <div class="probability-section">
+            <h3>A奖池</h3>
+            <div class="probability-items">
+                <div class="probability-item">
+                    <label>免一次作业</label>
+                    <input type="range" min="0" max="100" value="22.5" 
+                           data-prize="免一次作业" data-pool="A" class="probability-slider">
+                    <span class="probability-value">26%</span>
+                </div>
+                <div class="probability-item">
+                    <label>免一周值日</label>
+                    <input type="range" min="0" max="100" value="22.5" 
+                           data-prize="免一周值日" data-pool="A" class="probability-slider">
+                    <span class="probability-value">22%</span>
+                </div>
+                <div class="probability-item">
+                    <label>换座位一周</label>
+                    <input type="range" min="0" max="100" value="22.5" 
+                           data-prize="换座位一周" data-pool="A" class="probability-slider">
+                    <span class="probability-value">26%</span>
+                </div>
+                <div class="probability-item">
+                    <label>获得零食</label>
+                    <input type="range" min="0" max="100" value="22.5" 
+                           data-prize="获得零食" data-pool="A" class="probability-slider">
+                    <span class="probability-value">18%</span>
+                </div>
+                <div class="probability-item">
+                    <label>万能卡</label>
+                    <input type="range" min="0" max="100" value="10" 
+                           data-prize="万能卡" data-pool="A" class="probability-slider">
+                    <span class="probability-value">8%</span>
+                </div>
+            </div>
+        </div>
+        <div class="probability-section">
+            <h3>B奖池</h3>
+            <div class="probability-items">
+                <div class="probability-item">
+                    <label>给全班带礼物</label>
+                    <input type="range" min="0" max="100" value="16.67" 
+                           data-prize="给全班带礼物" data-pool="B" class="probability-slider">
+                    <span class="probability-value">22%</span>
+                </div>
+                <div class="probability-item">
+                    <label>一张试卷</label>
+                    <input type="range" min="0" max="100" value="16.67" 
+                           data-prize="一张试卷" data-pool="B" class="probability-slider">
+                    <span class="probability-value">20%</span>
+                </div>
+                <div class="probability-item">
+                    <label>英语作业x2</label>
+                    <input type="range" min="0" max="100" value="16.67" 
+                           data-prize="英语作业x2" data-pool="B" class="probability-slider">
+                    <span class="probability-value">18%</span>
+                </div>
+                <div class="probability-item">
+                    <label>罚站两节课</label>
+                    <input type="range" min="0" max="100" value="16.67" 
+                           data-prize="罚站两节课" data-pool="B" class="probability-slider">
+                    <span class="probability-value">16%</span>
+                </div>
+                <div class="probability-item">
+                    <label>摆一周桌子</label>
+                    <input type="range" min="0" max="100" value="16.67" 
+                           data-prize="摆一周桌子" data-pool="B" class="probability-slider">
+                    <span class="probability-value">12%</span>
+                </div>
+                <div class="probability-item">
+                    <label>表演节目</label>
+                    <input type="range" min="0" max="100" value="16.66" 
+                           data-prize="表演节目" data-pool="B" class="probability-slider">
+                    <span class="probability-value">12%</span>
+                </div>
+            </div>
+        </div>
+        <div class="probability-buttons">
+            <button id="saveProbability">保存设置</button>
+            <button id="resetProbability">重置默认</button>
+        </div>
+    </div>
+    <script src="js/probability.js"></script>
+</body>
+</html> 
